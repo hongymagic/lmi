@@ -1,0 +1,30 @@
+{
+	"name": "lmi",
+	"version": "0.0.1",
+	"description": "Lenders Mortgage Insurance calculator for Australian Home Loans",
+	"main": "index.js",
+	"scripts": {
+		"test": "tap test"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/hongymagic/lmi.git"
+	},
+	"homepage": "https://github.com/hongymagic/lmi",
+	"keywords": [
+		"Australia",
+		"lmi",
+		"lenders",
+		"mortgage insurance",
+		"calculator"
+	],
+	"author": {
+		"name": "David Hong",
+		"email": "d.hong@me.com",
+		"url": "http://davidhong.co"
+	},
+	"license": "BSD",
+	"devDependencies": {
+		"tap": "~0.4.1"
+	}
+}
