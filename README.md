@@ -14,7 +14,8 @@ Node module for calculating lenders mortgage insurance (LMI) in Australia.
 
 ```javascript
 var calculator = require('lmi');
-var lmi = calculator(0.90, 600000);
+var lmi = calculator(0.90, 680000);
+// 22508
 ```
 
 # Contribution

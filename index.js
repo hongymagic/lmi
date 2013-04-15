@@ -1,9 +1,12 @@
-// A sample lenders' mortgage insurance calculator for Australia
+// A sample lenders' mortgage insurance (LMI) calculator for Australia. Please
+// note that LMI will vary between lenders and this calculation should be used
+// only as a sample guide.
 
 var b1 = [0.41, 0.61, 0.76, 0.91, 1.22, 1.68, 1.89, 2.10];
 var b2 = [0.52, 0.78, 0.99, 1.18, 1.60, 2.20, 2.47, 2.74];
 var b3 = [0.72, 1.01, 1.25, 1.50, 2.02, 3.31, 3.56, 3.76];
 
+//
 // Number#toFixed which returns a number
 function toFixed (value, precision) {
 	if (precision == null) precision = 4;
@@ -13,8 +16,10 @@ function toFixed (value, precision) {
 	return parseFloat(fixed);
 }
 
-// ifttt. A bunch of if statements to determine lookup
-module.exports = function (lvr, loan) {
+//
+// LMI is simply a portion of the loan which is based on the loan-to-value
+// ratio.
+function rate (lvr, loan) {
 	var band, index;
 
 	if (loan < 300000)
@@ -46,4 +51,8 @@ module.exports = function (lvr, loan) {
 	}
 
 	return toFixed(band[index] / 100, 5);
+};
+
+module.exports = function (lvr, loan, precision) {
+	return toFixed(rate(lvr, loan) * loan, precision || 2);;
 };

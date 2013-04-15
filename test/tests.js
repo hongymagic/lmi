@@ -1,20 +1,17 @@
 var test = require('tap').test;
-var calc = require('../index');
+var lmi  = require('../index');
 
 test('make sure numbers are correct', function (t) {
 	function verify (lvr, loan, expected) {
-		var name = '$' + value + ' should equal $' + expected;
+		var name = '$' + loan + ' on ' + (lvr * 100).toFixed(2) + '% LVR should cost: $' + expected;
 		test(name, function (t) {
 			t.plan(1);
-			t.equal(calc(lvr, loan), expected, name);
+			t.equal(lmi(lvr, loan), expected, name);
 		});
 	}
 
-	verify(0, 0, 0);
-	verify(15000, 190);
-	verify(25000, 340);
-	verify(25001, 340.02);
-	verify(650000, 24740);
+	// $680, 000 loan with LVR of 90%
+	verify(0.90, 680000, 22508);
 
 	t.end();
 });
